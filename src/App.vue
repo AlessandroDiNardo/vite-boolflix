@@ -2,6 +2,8 @@
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppFooter from './components/AppFooter.vue';
+import axios from 'axios'
+import { store } from './store.js';
 
 export default {
   name: "App",
@@ -9,9 +11,29 @@ export default {
     AppHeader,
     AppMain,
     AppFooter
+  },
+  data() {
+    return {
+      store,
+    }
+  },
+  methods: {
+    getMovies() {
+      axios
+        .get(myURL)
+        .then(res => {
+          store.movieList = res.data.results;
+        })
+        .catch(err => {
+          console.log("ERRORI", err);
+        }
+        );
+    }
+  },
+  mounted() {
+    this.getMovies();
   }
 }
-
 </script>
 
 <template>
