@@ -14,20 +14,19 @@ export default {
   },
   data() {
     return {
-      store,
+      store
     }
   },
   methods: {
     getMovies() {
       axios
-        .get(myURL)
+        .get(store.apiKey)
         .then(res => {
           store.movieList = res.data.results;
         })
         .catch(err => {
-          console.log("ERRORI", err);
-        }
-        );
+          console.log("errori", err)
+        });
     }
   },
   mounted() {

@@ -25,7 +25,7 @@ export default {
             </button>
         </div>
         <div class="cards-container">
-            <SingleCards v-for="movie in store.movieList" :key="movie.id" :info="movie" />
+            <SingleCards v-for="(movie, index) in store.movieList" :key="index" :info="movie" />
         </div>
     </section>
 </template>
@@ -64,15 +64,8 @@ export default {
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-
-        .card {
-            text-align: center;
-
-            img {
-                width: 50%;
-            }
-        }
+        gap: 50px;
+        padding: 10px 100px 100px;
     }
-
 }
 </style>
