@@ -24,9 +24,6 @@ export default {
 @use '../style/general.scss' as *;
 
 .search-bar {
-    background-color: $bg-primary;
-    text-align: end;
-    padding: 30px;
     color: $text-secondary;
 
     #search {
