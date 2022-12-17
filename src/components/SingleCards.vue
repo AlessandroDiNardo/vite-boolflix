@@ -13,13 +13,13 @@ export default {
         <img :src="`https://image.tmdb.org/t/p/w200/${info.poster_path}`" alt="">
         <div class="text-block">
             <div>
-                Titolo Originale: <span>{{ info.title }}</span>
+                <span>Titolo Originale:</span> {{ info.title }}
             </div>
             <div>
-                Lingua originale: <span>{{ info.original_language }}</span>
+                <span>Lingua originale:</span> {{ info.original_language }}
             </div>
             <div>
-                Voto: <span>{{ info.vote_average }}</span>
+                <span>Voto:</span> {{ info.vote_average }}
             </div>
         </div>
     </div>
@@ -33,18 +33,21 @@ export default {
     width: 250px;
     height: 400px;
     line-height: 25px;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
+    border: 1px solid white;
 
     img {
         width: 100%;
+        height: 100%;
     }
 
     .text-block {
+        width: 100%;
         font-size: 15px;
         color: $text-primary;
 
-        &:nth-of-type(3) {
-            color: $text-tertiary;
+        span {
+            color: rgba(255, 0, 0, 0.648);
         }
     }
 }
