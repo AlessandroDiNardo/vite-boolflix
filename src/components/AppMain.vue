@@ -32,6 +32,6 @@ export default {
     align-items: center;
     flex-wrap: wrap;
     gap: 50px;
-    padding: 10px 100px 100px;
+    padding: 100px;
 }
 </style>
