@@ -5,20 +5,14 @@ export default {
 </script>
 
 <template>
-    <div class="bottombar">
-        <h1>BOOLFLIX</h1>
-    </div>
+    <h1>BOOLFLIX</h1>
 </template>
 
 <style lang="scss" scoped>
 @use '../style/partials/variables.scss' as *;
 @use '../style/general.scss' as *;
 
-.bottombar {
-    height: 100px;
-    padding: 20px 0;
-    text-align: center;
-    background-color: $bg-secondary;
-    color: red;
+h1 {
+    color: $text-tertiary;
 }
 </style>
