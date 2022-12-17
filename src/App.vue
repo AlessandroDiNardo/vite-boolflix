@@ -1,6 +1,7 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import AppSearch from './components/AppSearch.vue';
 import AppFooter from './components/AppFooter.vue';
 import axios from 'axios'
 import { store } from './store.js';
@@ -9,6 +10,7 @@ export default {
   name: "App",
   components: {
     AppHeader,
+    AppSearch,
     AppMain,
     AppFooter
   },
@@ -19,8 +21,15 @@ export default {
   },
   methods: {
     getMovies() {
+
+      let myUrl = store.apiKey;
+      // condizione:
+      if (store.searchMovie !== "") {
+        myUrl = `${store.apiSearchMovie}&query=${store.searchMovie}`
+      }
+
       axios
-        .get(store.apiKey)
+        .get(myUrl)
         .then(res => {
           store.movieList = res.data.results;
         })
@@ -36,15 +45,18 @@ export default {
 </script>
 
 <template>
-  <header>
-    <AppHeader />
-  </header>
-  <main>
-    <AppMain />
-  </main>
-  <footer>
-    <AppFooter />
-  </footer>
+  <section class="container">
+    <header>
+      <AppHeader />
+    </header>
+    <main>
+      <AppSearch @searchTitle="getMovies" />
+      <AppMain />
+    </main>
+    <footer>
+      <AppFooter />
+    </footer>
+  </section>
 </template>
 
 <style lang="scss">
