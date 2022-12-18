@@ -35,7 +35,8 @@ export default {
                 {
                     img: "img/pl.png",
                     lang: "pl"
-                }
+                },
+
             ]
         }
     },
