@@ -36,7 +36,10 @@ export default {
                     img: "img/pl.png",
                     lang: "pl"
                 },
-
+                {
+                    img: "img/noFlags.png",
+                    lang: ""
+                }
             ]
         }
     },
@@ -64,16 +67,28 @@ export default {
         <img :src="`https://image.tmdb.org/t/p/w500/${info.poster_path}`" alt="">
         <div class="text-block">
             <div v-if="info.title">
-                <div>Titolo Film: {{ info.title }}</div>
-                <div>Titolo originale film: {{ info.original_title }}</div>
+                <div>
+                    <span>Titolo Film:</span>
+                    {{ info.title }}
+                </div>
+                <div>
+                    <span>Titolo originale film:</span>
+                    {{ info.original_title }}
+                </div>
             </div>
             <div v-else-if="info.name">
-                <div>Titolo serie tv: {{ info.name }}</div>
-                <div>Titolo originale serie tv : {{ info.original_name }}</div>
+                <div>
+                    <span>Titolo serie tv</span>
+                    {{ info.name }}
+                </div>
+                <div>
+                    <span>Titolo originale serie tv</span>
+                    {{ info.original_name }}
+                </div>
             </div>
             <div>
-                Language: {{ info.original_language }}
-                <img :src="getFlags" alt="flags" class="flags">
+                <span>Lingua:</span>
+                {{ info.original_language }}
             </div>
             <div class="star">
                 <span>Voto:</span>
@@ -83,6 +98,9 @@ export default {
                 <div v-for="star in 5 - getVote">
                     <font-awesome-icon icon="fa-regular fa-star" />
                 </div>
+            </div>
+            <div>
+                <img :src="getFlags" alt="flags" class="flags">
             </div>
         </div>
     </div>
