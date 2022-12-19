@@ -156,9 +156,9 @@ export default {
 
         .over-block {
             display: block;
+            width: 100%;
             position: absolute;
             top: 30%;
-            left: 23%;
             text-align: center;
         }
     }

@@ -47,7 +47,7 @@ export default {
             border-bottom-right-radius: 0px;
             color: $text-primary;
             transition-timing-function: ease-in-out;
-            box-shadow: inset 15px 15px 30px rgb(153, 0, 255), inset -15px -15px 30px rgb(153, 0, 255);
+            box-shadow: inset 15px 15px 30px rgb(0, 89, 255), inset -15px -15px 30px rgb(0, 89, 255);
         }
     }
 
@@ -66,7 +66,7 @@ export default {
             transition-timing-function: ease-in-out;
             background-color: $bg-primary;
             color: $text-primary;
-            box-shadow: inset 15px 15px 15px rgb(153, 0, 255), inset -15px -15px 15px rgb(153, 0, 255);
+            box-shadow: inset 15px 15px 15px rgb(0, 89, 255), inset -15px -15px 15px rgb(0, 89, 255);
             border: none;
             border-top-right-radius: 0px;
             border-bottom-left-radius: 0px;
