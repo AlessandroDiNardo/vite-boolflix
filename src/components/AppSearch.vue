@@ -38,16 +38,16 @@ export default {
         background-color: white;
         color: $text-secondary;
         border: none;
-        transition: 0.8s;
+        transition: 1s;
 
         &:hover {
             border-top-right-radius: 20px;
             border-bottom-left-radius: 20px;
             border-top-left-radius: 0px;
             border-bottom-right-radius: 0px;
-            background-color: $bg-primary;
-            color: white;
+            color: $text-primary;
             transition-timing-function: ease-in-out;
+            box-shadow: inset 15px 15px 30px rgb(153, 0, 255), inset -15px -15px 30px rgb(153, 0, 255);
         }
     }
 
@@ -56,18 +56,22 @@ export default {
         border: none;
         font-size: 12px;
         cursor: pointer;
-        background-color: white;
+        background-color: $text-primary;
         color: $text-secondary;
-        border-top-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        transition: 0.8s;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        transition: 1s;
 
         &:hover {
             transition-timing-function: ease-in-out;
             background-color: $bg-primary;
-            color: white;
+            color: $text-primary;
+            box-shadow: inset 15px 15px 15px rgb(153, 0, 255), inset -15px -15px 15px rgb(153, 0, 255);
             border: none;
-            box-shadow: 10px 10px 10px red($color: #ff0000);
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-top-left-radius: 15px;
+            border-bottom-right-radius: 15px;
         }
     }
 }
