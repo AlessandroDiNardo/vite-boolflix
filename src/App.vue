@@ -45,18 +45,16 @@ export default {
 </script>
 
 <template>
-  <section class="container">
-    <header>
-      <AppHeader />
-      <AppSearch @searchTitle="getMovies" />
-    </header>
-    <main>
-      <AppMain />
-    </main>
-    <footer>
-      <AppFooter />
-    </footer>
-  </section>
+  <header>
+    <AppHeader />
+    <AppSearch @searchTitle="getMovies" />
+  </header>
+  <main class="container">
+    <AppMain />
+  </main>
+  <footer>
+    <AppFooter />
+  </footer>
 </template>
 
 <style lang="scss">
@@ -79,5 +77,6 @@ footer {
   padding: 30px 0;
   text-align: center;
   background-color: $bg-secondary;
+  width: 100%;
 }
 </style>
