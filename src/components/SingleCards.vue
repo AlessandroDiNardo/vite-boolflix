@@ -87,8 +87,8 @@ export default {
                 </div>
             </div>
             <div>
-                <span>Lingua:</span>
-                {{ info.original_language }}
+                <span>Lingua: </span>
+                <img :src="getFlags" alt="flags" class="flags">
             </div>
             <div class="star">
                 <span>Voto:</span>
@@ -98,9 +98,6 @@ export default {
                 <div v-for="star in 5 - getVote">
                     <font-awesome-icon icon="fa-regular fa-star" />
                 </div>
-            </div>
-            <div>
-                <img :src="getFlags" alt="flags" class="flags">
             </div>
         </div>
     </div>
@@ -114,30 +111,50 @@ export default {
     width: 250px;
     height: 400px;
     line-height: 25px;
-    margin-bottom: 150px;
+    margin-bottom: 20px;
     border: 1px solid white;
+    position: relative;
 
     img {
         width: 100%;
         height: 100%;
+        transition: 0.7s;
     }
 
     .text-block {
-        width: 100%;
-        font-size: 15px;
-        color: $text-primary;
+        display: none;
+        transition: 0.7s;
+    }
 
-        span {
-            color: rgba(255, 0, 0, 0.648);
+    &:hover {
+        img {
+            opacity: 0.2;
+            transition-timing-function: ease-in-out;
         }
-    }
 
-    .flags {
-        width: 10%;
-    }
+        .text-block {
+            display: block;
+            width: 100%;
+            font-size: 15px;
+            color: $text-primary;
+            position: absolute;
+            top: 30%;
+            transition-timing-function: ease-in-out;
 
-    .star {
-        display: flex;
+
+            span {
+                color: rgba(255, 0, 0, 0.648);
+            }
+
+            .flags {
+                width: 10%;
+                opacity: 1;
+            }
+
+            .star {
+                display: flex;
+            }
+        }
     }
 }
 </style>
