@@ -21,6 +21,10 @@ export default {
                     lang: "en"
                 },
                 {
+                    img: "img/us.png",
+                    lang: "us"
+                },
+                {
                     img: "img/es.png",
                     lang: "es"
                 },
@@ -36,10 +40,6 @@ export default {
                     img: "img/pl.png",
                     lang: "pl"
                 },
-                {
-                    img: "img/noFlags.png",
-                    lang: ""
-                }
             ]
         }
     },
@@ -64,39 +64,32 @@ export default {
 
 <template>
     <div class="card">
-        <img :src="`https://image.tmdb.org/t/p/w500/${info.poster_path}`" alt="">
-        <div class="text-block">
+        <img :src="`https://image.tmdb.org/t/p/w500/${info.poster_path}`" alt=""
+            onerror="this.src = '/img/imgNotFound.png';">
+        <div class=" text-block">
             <div v-if="info.title">
-                <div>
-                    <span>Titolo Film:</span>
+                <div class="title">
                     {{ info.title }}
-                </div>
-                <div>
-                    <span>Titolo originale film:</span>
-                    {{ info.original_title }}
                 </div>
             </div>
             <div v-else-if="info.name">
-                <div>
-                    <span>Titolo serie tv</span>
+                <div class="title">
                     {{ info.name }}
                 </div>
+            </div>
+            <div class="over-block">
                 <div>
-                    <span>Titolo originale serie tv</span>
-                    {{ info.original_name }}
+                    <span>Lingua: </span>
+                    <img :src="getFlags" alt="flags" class="flags">
                 </div>
-            </div>
-            <div>
-                <span>Lingua: </span>
-                <img :src="getFlags" alt="flags" class="flags">
-            </div>
-            <div class="star">
-                <span>Voto:</span>
-                <div v-for="star in getVote">
-                    <font-awesome-icon icon="fa-solid fa-star" />
-                </div>
-                <div v-for="star in 5 - getVote">
-                    <font-awesome-icon icon="fa-regular fa-star" />
+                <div class="star">
+                    <span>Voto:</span>
+                    <div v-for="star in getVote">
+                        <font-awesome-icon icon="fa-solid fa-star" />
+                    </div>
+                    <div v-for="star in 4 - getVote">
+                        <font-awesome-icon icon="fa-solid fa-star-half-stroke" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -122,8 +115,33 @@ export default {
     }
 
     .text-block {
-        display: none;
-        transition: 0.7s;
+        display: block;
+        width: 100%;
+        font-size: 15px;
+        color: $text-primary;
+
+        span {
+            color: rgba(255, 0, 0, 0.648);
+        }
+
+        .flags {
+            width: 10%;
+            opacity: 1;
+        }
+
+        .star {
+            display: flex;
+            color: yellow;
+            justify-content: center;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .over-block {
+            display: none;
+        }
     }
 
     &:hover {
@@ -132,28 +150,12 @@ export default {
             transition-timing-function: ease-in-out;
         }
 
-        .text-block {
+        .over-block {
             display: block;
-            width: 100%;
-            font-size: 15px;
-            color: $text-primary;
             position: absolute;
             top: 30%;
-            transition-timing-function: ease-in-out;
-
-
-            span {
-                color: rgba(255, 0, 0, 0.648);
-            }
-
-            .flags {
-                width: 10%;
-                opacity: 1;
-            }
-
-            .star {
-                display: flex;
-            }
+            left: 23%;
+            text-align: center;
         }
     }
 }
