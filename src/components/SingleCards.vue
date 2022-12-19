@@ -40,6 +40,10 @@ export default {
                     img: "img/pl.png",
                     lang: "pl"
                 },
+                {
+                    img: "img/noFlags.png",
+                    lang: ""
+                }
             ]
         }
     },
