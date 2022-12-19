@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-    <h1>BOOLFLIX</h1>
+    <h1 onclick="location.reload(true)"> BOOLFLIX </h1>
 </template>
 
 <style lang="scss" scoped>
@@ -14,5 +14,10 @@ export default {
 
 h1 {
     color: $text-tertiary;
+    font-size: 20px;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 </style>
