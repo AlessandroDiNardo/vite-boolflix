@@ -13,7 +13,8 @@ export default {
 
 <template>
     <div class="search-bar">
-        <input type="text" v-model="store.searchMovie" @keyup.enter="$emit('searchTitle')" id="search">
+        <input type="text" v-model="store.searchMovie" @keyup.enter="$emit('searchTitle')" id="search"
+            placeholder="Search...">
         <button type="submit" @click.prevent="$emit('searchTitle')" id="btn-search">Search</button>
     </div>
 </template> 
@@ -25,23 +26,49 @@ export default {
 
 .search-bar {
     color: $text-secondary;
+    display: flex;
+    gap: 20px;
 
     #search {
-        margin-right: 20px;
         text-align: center;
-        border: 1px solid $bg-primary;
-        border-radius: 7px;
-        padding: 5px 0;
-        width: 120px;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px 0;
+        width: 400px;
+        background-color: white;
+        color: $text-secondary;
+        border: none;
+        transition: 0.8s;
+
+        &:hover {
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-top-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            background-color: $bg-primary;
+            color: white;
+            transition-timing-function: ease-in-out;
+        }
     }
 
     #btn-search {
-        padding: 5px;
-        border: 1px solid white;
-        border-radius: 5px;
-        background-color: white;
+        padding: 5px 30px;
+        border: none;
         font-size: 12px;
         cursor: pointer;
+        background-color: white;
+        color: $text-secondary;
+        border-top-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        transition: 0.8s;
+
+        &:hover {
+            transition-timing-function: ease-in-out;
+            background-color: $bg-primary;
+            color: white;
+            border: none;
+            box-shadow: 10px 10px 10px red($color: #ff0000);
+        }
     }
 }
 </style>
