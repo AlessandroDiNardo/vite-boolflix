@@ -74,9 +74,12 @@ header {
 }
 
 footer {
-  padding: 30px 0;
+  padding: 15px 0;
   text-align: center;
   background-color: $bg-secondary;
   width: 100%;
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
 }
 </style>
