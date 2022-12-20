@@ -34,7 +34,7 @@ export default {
         border-top-left-radius: 20px;
         border-bottom-right-radius: 20px;
         padding: 10px 0;
-        width: 400px;
+        width: 200px;
         background-color: white;
         color: $text-secondary;
         border: none;
