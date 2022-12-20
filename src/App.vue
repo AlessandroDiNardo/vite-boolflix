@@ -2,6 +2,7 @@
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppSearch from './components/AppSearch.vue';
+import AppInfoUser from './components/AppInfoUser.vue';
 import AppFooter from './components/AppFooter.vue';
 import axios from 'axios'
 import { store } from './store.js';
@@ -11,6 +12,7 @@ export default {
   components: {
     AppHeader,
     AppSearch,
+    AppInfoUser,
     AppMain,
     AppFooter
   },
@@ -47,7 +49,10 @@ export default {
 <template>
   <header>
     <AppHeader />
-    <AppSearch @searchTitle="getMovies" />
+    <div class="left_side">
+      <AppSearch @searchTitle="getMovies" />
+      <AppInfoUser />
+    </div>
   </header>
   <main class="container">
     <AppMain />
@@ -71,6 +76,12 @@ header {
   position: fixed;
   z-index: 999;
   width: 100%;
+
+  .left_side {
+    display: flex;
+    gap: 20px;
+    height: 35px;
+  }
 }
 
 footer {
