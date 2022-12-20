@@ -31,7 +31,7 @@ export default {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 50px;
-    padding: 100px;
+    gap: 25px;
+    padding: 100px 0;
 }
 </style>
