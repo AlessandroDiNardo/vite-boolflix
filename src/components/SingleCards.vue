@@ -89,6 +89,9 @@ export default {
                     <div class="overview">
                         <span>Overview: </span>{{ info.overview }}
                     </div>
+                    <button class="play">
+                        <font-awesome-icon icon="fa-solid fa-circle-play" />
+                    </button>
                 </div>
             </div>
         </div>
@@ -118,7 +121,7 @@ export default {
     .card {
         width: 250px;
         height: 100%;
-        line-height: 25px;
+        line-height: 20px;
         margin-bottom: 10px;
         position: relative;
         overflow-y: auto;
@@ -134,11 +137,11 @@ export default {
         .text-block {
             display: block;
             width: 100%;
-            font-size: 15px;
+            font-size: 12px;
             color: $text-primary;
 
             span {
-                color: rgba(255, 0, 0, 0.648);
+                color: red;
             }
 
             .flags {
@@ -150,6 +153,22 @@ export default {
                 display: flex;
                 color: yellow;
                 justify-content: center;
+            }
+
+            .play {
+                color: $text-primary;
+                font-size: 25px;
+                transition: 0.7s;
+                margin-top: 10px;
+                border: none;
+                background: none;
+
+                &:hover {
+                    cursor: pointer;
+                    color: red;
+                    transition-timing-function: ease-in-out;
+
+                }
             }
 
             .over-block {
