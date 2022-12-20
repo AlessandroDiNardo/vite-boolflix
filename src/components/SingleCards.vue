@@ -67,34 +67,39 @@ export default {
 </script>
 
 <template>
-    <div class="card">
-        <img :src="`https://image.tmdb.org/t/p/w500/${info.poster_path}`" alt=""
-            onerror="this.src = '/img/imgNotFound.png';">
-        <div class=" text-block">
-            <div v-if="info.title">
-                <div class="title">
-                    {{ info.title }}
-                </div>
-            </div>
-            <div v-else-if="info.name">
-                <div class="title">
-                    {{ info.name }}
-                </div>
-            </div>
-            <div class="over-block">
-                <div>
-                    <span>Lingua: </span>
-                    <img :src="getFlags" alt="flags" class="flags">
-                </div>
-                <div class="star">
-                    <span>Voto:</span>
-                    <div v-for="star in getVote">
-                        <font-awesome-icon icon="fa-solid fa-star" />
+    <div class="card-block">
+        <div class="card">
+            <img :src="`https://image.tmdb.org/t/p/w500/${info.poster_path}`" alt=""
+                onerror="this.src = '/img/imgNotFound.png';">
+            <div class=" text-block">
+                <div class="over-block">
+                    <div>
+                        <span>Lingua: </span>
+                        <img :src="getFlags" alt="flags" class="flags">
                     </div>
-                    <div v-for="star in 4 - getVote">
-                        <font-awesome-icon icon="fa-solid fa-star-half-stroke" />
+                    <div class="star">
+                        <span>Voto:</span>
+                        <div v-for="star in getVote">
+                            <font-awesome-icon icon="fa-solid fa-star" />
+                        </div>
+                        <div v-for="star in 4 - getVote">
+                            <font-awesome-icon icon="fa-solid fa-star-half-stroke" />
+                        </div>
+                    </div>
+                    <div class="overview">
+                        <span>Overview: </span>{{ info.overview }}
                     </div>
                 </div>
+            </div>
+        </div>
+        <div v-if="info.title">
+            <div class="title">
+                {{ info.title }}
+            </div>
+        </div>
+        <div v-else-if="info.name">
+            <div class="title">
+                {{ info.name }}
             </div>
         </div>
     </div>
@@ -104,62 +109,71 @@ export default {
 @use '../style/partials/variables.scss' as *;
 @use '../style/general.scss' as *;
 
-.card {
+.card-block {
+    text-align: center;
     width: 250px;
-    height: 400px;
-    line-height: 25px;
-    margin-bottom: 20px;
-    border: 1px solid white;
-    position: relative;
+    color: $text-primary;
+    margin-bottom: 30px;
 
-    img {
-        width: 100%;
+    .card {
+        width: 250px;
         height: 100%;
-        transition: 0.7s;
-    }
+        line-height: 25px;
+        margin-bottom: 10px;
+        position: relative;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgb(0, 89, 255) rgb(0, 0, 0);
 
-    .text-block {
-        display: block;
-        width: 100%;
-        font-size: 15px;
-        color: $text-primary;
-
-        span {
-            color: rgba(255, 0, 0, 0.648);
-        }
-
-        .flags {
-            width: 10%;
-            opacity: 1;
-        }
-
-        .star {
-            display: flex;
-            color: yellow;
-            justify-content: center;
-        }
-
-        .title {
-            text-align: center;
-        }
-
-        .over-block {
-            display: none;
-        }
-    }
-
-    &:hover {
         img {
-            opacity: 0.2;
-            transition-timing-function: ease-in-out;
+            width: 100%;
+            height: 100%;
+            transition: 0.7s;
         }
 
-        .over-block {
+        .text-block {
             display: block;
             width: 100%;
-            position: absolute;
-            top: 30%;
-            text-align: center;
+            font-size: 15px;
+            color: $text-primary;
+
+            span {
+                color: rgba(255, 0, 0, 0.648);
+            }
+
+            .flags {
+                width: 10%;
+                opacity: 1;
+            }
+
+            .star {
+                display: flex;
+                color: yellow;
+                justify-content: center;
+            }
+
+            .over-block {
+                display: none;
+            }
+        }
+
+        &:hover {
+            img {
+                width: 100%;
+                height: 100%;
+                opacity: 0.3;
+                border-radius: 20px;
+                transition-timing-function: ease-in-out;
+            }
+
+            .over-block {
+                display: block;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                text-align: center;
+                padding: 5px 10px;
+            }
         }
     }
 }
