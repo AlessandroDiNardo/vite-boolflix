@@ -71,7 +71,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 65px;
   background-color: $bg-secondary;
   position: fixed;
   z-index: 999;
@@ -85,8 +85,10 @@ header {
 }
 
 footer {
-  padding: 15px 0;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 65px;
   background-color: $bg-secondary;
   width: 100%;
   position: fixed;
